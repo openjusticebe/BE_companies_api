@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Api\BaseController;
 use Illuminate\Http\Request;
 
-class ApiController extends Controller
+class ApiController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -13,6 +14,6 @@ class ApiController extends Controller
      */
     public function index()
     {
-        return redirect('api/v1/');
+        return 'sdf';
     }
 }

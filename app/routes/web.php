@@ -12,17 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    redirect()->route('api.index');
+    return redirect()->route('api.index');
 });
-
-
-// $router->get('/', [
-//     'as' => 'api.base',
-//     'uses' => 'Api\ApiController@index',
-// ]);
-
 
 // //  Routing
 // $router->group(['prefix'=>'api/v1'], function () use ($router) {

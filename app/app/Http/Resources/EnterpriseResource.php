@@ -20,10 +20,18 @@ class EnterpriseResource extends BaseResource
             'EnterpriseNumber' => $this->EnterpriseNumber,
             'Status' => $this->Status,
             'JuridicalSituation' => $this->JuridicalSituation,
+            'JuridicalSituationLabel' => $this->JuridicalSituationLabel,
+
             'TypeOfEnterprise' => $this->TypeOfEnterprise,
+            'TypeOfEnterpriseLabel' => $this->TypeOfEnterpriseLabel,
+
             'JuridicalForm' =>  $this->JuridicalForm,
+            'JuridicalFormLabel' => $this->JuridicalFormLabel,
+
             'JuridicalFormCAC' =>  $this->JuridicalFormCAC,
-            'StartDate' => $this->StartDate
+            'JuridicalFormCACLabel' => $this->JuridicalFormCACLabel,
+            
+            'StartDate' => $this->StartDate,
         ];
 
         // return 'test' = $this->EnterpriseNumber;

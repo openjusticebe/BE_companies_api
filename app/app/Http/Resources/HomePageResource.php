@@ -4,6 +4,8 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+use URL;
+
 class HomePageResource extends BaseResource
 {
     /**
@@ -21,18 +23,21 @@ class HomePageResource extends BaseResource
                 [
                     'title' => 'self',
                     'emoji' => '🏠',
-                    // 'href' => URL::current(),
+                    'href' => URL::current(),
                 ],
                 [
                     'title' => 'custom_methods',
-                    'emoji' => '🛶',
-                    'methods' => [
+                    'examples' => [
+                        'mesylab' => route('enterprises.show', ['0685.595.109']),
+                        'oj' => route('enterprises.show', ['0749.460.404']),
+                        'mfwb' => route('enterprises.show', ['0316.380.940']),
+
                     //    'logbook' => route('api.logbook.logbook'),
                     //    'map' => route('api.map.map'),
                     //    'indicators' => route('api.indicators.index'),
                     ]
                 ]
             ],
+        ];
     }
 }
-

@@ -17,13 +17,13 @@ class BaseResource extends JsonResource
             'meta' => [
                 
                 'api_version' => 'v1',
-                // 'api_base' => route('api.base_api'),
-                // 'api_documentation' => [
-                    // 'swagger' => route('api.base') . '/api-docs.html',
-                    // 'redoc' => route('api.base') . '/api-redoc.html',
-                // ],
+                'api_base' => route('api.index'),
+                'api_documentation' => [
+                    'swagger' => route('api.index') . '/api-docs.html',
+                    'redoc' => route('api.index') . '/api-redoc.html',
+                ],
                 'source_code' => env('SOURCE_CODE'),
-                'author' => env('APP_NAME'),
+                'author' => env('APP_AUTHOR'),
                 'disclaimer' => '⚠️ What you are seeing is raw technical data formatted in a non human readable way. It is not meant to be user-friendly.',
             ],
         ];

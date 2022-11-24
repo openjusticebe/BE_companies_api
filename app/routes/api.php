@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Api\ApiCompaniesController;
+use App\Http\Controllers\Api\ApiEnterpriseController;
+use App\Http\Controllers\Api\BaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ use App\Http\Controllers\Api\ApiCompaniesController;
 // });
 
 // define name api.index
-Route::get('/', function () {
-    return 'Hello World';
-})->name('api.index');
+Route::get('/', [BaseController::class, 'index'])->name('api.index');
 
 // define name api.companies.find and APIController@find
-Route::get('/companies/find/{bce}', [ApiCompaniesController::class, 'find'])->name('companies.find');
+Route::get('/enterprises/{EnterpriseNumber}', [ApiEnterpriseController::class, 'show'])->name('enterprises.show');

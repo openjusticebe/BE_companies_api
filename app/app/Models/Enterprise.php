@@ -24,6 +24,28 @@ class Enterprise extends Model
         'StartDate' => 'date',
     ];
 
+    public function TypeOfEnterpriseLabel()
+    {
+        return $this->hasMany('App\Models\Code', 'Code', 'TypeOfEnterprise')->where('Category', 'TypeOfEnterprise')->select(['Language','Description']);
+    }
+
+    public function JuridicalSituationLabel()
+    {
+        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalSituation')->where('Category', 'JuridicalSituation')->select(['Language','Description']);
+    }
+
+    public function JuridicalFormLabel()
+    {
+        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalForm')->where('Category', 'JuridicalForm')->select(['Language','Description']);
+    }
+
+
+    public function JuridicalFormCACLabel()
+    {
+        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalFormCAC')->where('Category', 'JuridicalForm')->select(['Language','Description']);
+    }
+    
+    
     # hasMany Address
     public function addresses()
     {

@@ -8,9 +8,9 @@ use DB;
 use App\Models\Enterprise;
 use App\Http\Resources\EnterpriseResource;
 
-class ApiCompaniesController extends Controller
+class ApiEnterpriseController extends Controller
 {
-    public function find($EnterpriseNumber)
+    public function show($EnterpriseNumber)
     {
         // OpenJustice
         // http://127.0.0.1:8001/api/companies/find/0749.460.404
