@@ -23,7 +23,7 @@ class BaseResource extends JsonResource
                     'redoc' => route('api.index') . '/api-redoc.html',
                 ],
                 'source_code' => env('SOURCE_CODE'),
-                'author' => env('APP_AUTHOR'),
+                'author' => env('AUTHOR_NAME'),
                 'disclaimer' => '⚠️ What you are seeing is raw technical data formatted in a non human readable way. It is not meant to be user-friendly.',
             ],
         ];

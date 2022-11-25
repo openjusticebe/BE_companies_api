@@ -31,6 +31,7 @@ class HomePageResource extends BaseResource
                         'mesylab' => route('enterprises.show', ['0685.595.109']),
                         'oj' => route('enterprises.show', ['0749.460.404']),
                         'mfwb' => route('enterprises.show', ['0316.380.940']),
+                        'montpiete' => route('enterprises.show', ['0862.932.685']),
 
                     //    'logbook' => route('api.logbook.logbook'),
                     //    'map' => route('api.map.map'),

@@ -18,7 +18,23 @@ class EnterpriseResource extends BaseResource
   
         return [
             'EnterpriseNumber' => $this->EnterpriseNumber,
+            'EnterpriseNumberDotLess' => (int)$this->EnterpriseNumberDotLess,
+            
+            'Denominations' => $this->denominations,
+
+            'Addresses' => $this->addresses,
+
+            'Contacts' => $this->contacts,
+
+            'Establishments' => $this->establishments,
+
+            'Activites' => $this->activites,
+
+            'Branches' => $this->branches,
+
             'Status' => $this->Status,
+            'StatusLabel' => $this->StatusLabel,
+            
             'JuridicalSituation' => $this->JuridicalSituation,
             'JuridicalSituationLabel' => $this->JuridicalSituationLabel,
 
@@ -30,8 +46,11 @@ class EnterpriseResource extends BaseResource
 
             'JuridicalFormCAC' =>  $this->JuridicalFormCAC,
             'JuridicalFormCACLabel' => $this->JuridicalFormCACLabel,
-            
+
+
             'StartDate' => $this->StartDate,
+
+            'ExternalLinks' => $this->ExternalLinks,
         ];
 
         // return 'test' = $this->EnterpriseNumber;

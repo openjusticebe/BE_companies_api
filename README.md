@@ -4,6 +4,11 @@ API of belgian companies based on public OpenData from the [Belgian government](
 
 # Why this API?
 
-This API is a simple way to get data from the [Belgian government](https://kbopub.economie.fgov.be/kbo-open-data/login). The Banque Carrefour is currently charging a fee for using the API -- currently 50€ for 2000 requests (20220829).
+This API is a simple way to get data from the [Belgian government](https://kbopub.economie.fgov.be/kbo-open-data/login).
 
-At OpenJustice.be, we don't like to pay for OpenData and we want to make it free for everyone.
+# How to use it?
+
+1. Clone this repository
+2. Get the date from the [Belgian government](https://kbopub.economie.fgov.be/kbo-open-data/login) and put it in the `csv` folder.
+3. Run the notebook `./prepare-data.ipynb` to prepare the data.
+4. Run `php artisan serve` to start the API on port `8000`.

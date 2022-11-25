@@ -9,11 +9,7 @@ class Establishment extends Model
 {
     use HasFactory;
 
-
     protected $table = 'establishment';
-
-    // establishment
-    // EstablishmentNumber, StartDate, EnterpriseNumber
 
     // define the variables and their types
     protected $casts = [
@@ -21,7 +17,6 @@ class Establishment extends Model
         'EnterpriseNumber' => 'string',
         'StartDate' => 'date',
     ];
-
 
     # belongsTo Enterprise
     public function enterprise()

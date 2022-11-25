@@ -17,12 +17,18 @@ class Enterprise extends Model
     protected $casts = [
         'EnterpriseNumber' => 'string',
         'Status' => 'string',
-        'JuridicalSituation' => 'integer',
-        'TypeOfEnterprise' => 'integer',
-        'JuridicalForm' => 'integer',
-        'JuridicalFormCAC' => 'integer',
+        'JuridicalSituation' => 'string',
+        'TypeOfEnterprise' => 'string',
+        'JuridicalForm' => 'string',
+        'JuridicalFormCAC' => 'string',
         'StartDate' => 'date',
     ];
+
+
+    public function StatusLabel()
+    {
+        return $this->hasMany(Code::class, 'Code', 'Status')->where('Category', 'Status');
+    }
 
     public function TypeOfEnterpriseLabel()
     {
@@ -39,23 +45,21 @@ class Enterprise extends Model
         return $this->hasMany('App\Models\Code', 'Code', 'JuridicalForm')->where('Category', 'JuridicalForm')->select(['Language','Description']);
     }
 
-
     public function JuridicalFormCACLabel()
     {
-        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalFormCAC')->where('Category', 'JuridicalForm')->select(['Language','Description']);
+        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalForm')->where('Category', 'JuridicalForm')->select(['Language','Description']);
     }
     
-    
+    # hasMany denominations
+    public function denominations()
+    {
+        return $this->hasMany(Denomination::class, 'EntityNumber', 'EnterpriseNumber');
+    }
+
     # hasMany Address
     public function addresses()
     {
         return $this->hasMany(Address::class, 'EntityNumber', 'EnterpriseNumber');
-    }
-    # hasMany denominations
-    
-    public function denominations()
-    {
-        return $this->hasMany(Denomination::class, 'EntityNumber', 'EnterpriseNumber');
     }
 
     # hasMany denominations
