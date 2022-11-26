@@ -32,6 +32,8 @@ class HomePageResource extends BaseResource
                         'oj' => route('enterprises.show', ['0749.460.404']),
                         'mfwb' => route('enterprises.show', ['0316.380.940']),
                         'montpiete' => route('enterprises.show', ['0862.932.685']),
+                        'naces' => route('naces.get', ['70111,70112']),
+                        'lookup' => route('enterprises.lookup', ['name' => 'mesylab', 'Zipcode' => '4140']),
 
                     //    'logbook' => route('api.logbook.logbook'),
                     //    'map' => route('api.map.map'),

@@ -96,7 +96,7 @@ class Enterprise extends Model
         return [
             'notaire' => [
                 'attributes' => 'notaire',
-                'href' =>  ' https://statuts.notaire.be/stapor_v1/enterprise/' . $this->EnterpriseNumberDotLess . '/statutes',
+                'href' =>  'https://statuts.notaire.be/stapor_v1/enterprise/' . $this->EnterpriseNumberDotLess . '/statutes',
             ],
             'nbb' => [
                 'attributes' => 'nbb',
@@ -106,7 +106,6 @@ class Enterprise extends Model
                 'attributes' => 'ejustice',
                 'href' =>  'http://www.ejustice.just.fgov.be/cgi_tsv/tsv_rech.pl?language=fr&btw=' . $this->EnterpriseNumberDotLess . '&liste=Liste',
             ],
-
 
         ];
     }

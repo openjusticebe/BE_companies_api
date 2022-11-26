@@ -1,6 +1,10 @@
-# BE companies API
+# API to retrieve information about belgian companies
 
 API of belgian companies based on public OpenData from the [Banque Carrefour of Belgian government](https://kbopub.economie.fgov.be/kbo-open-data/login).
+
+# Data manual
+
+<https://economie.fgov.be/sites/default/files/Files/Entreprises/BCE/Cookbook-BCE-Open-Data.pdf>
 
 # Why this API?
 
