@@ -1,0 +1,44 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "BE Companies API Documentation",
+        "description": "OpenApi description of the BE Companies API",
+        "contact": {
+            "email": "martin@erpicum.net"
+        },
+        "license": {
+            "name": "GPL-3.0 License",
+            "url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://be_companies_api.tintamarre.be",
+            "description": "BE Companies API Server"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Main"
+                ],
+                "summary": "Get the homepage of the API",
+                "description": "Links to API resources",
+                "operationId": "main",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Projects",
+            "description": "API Endpoints of Projects"
+        }
+    ]
+}
