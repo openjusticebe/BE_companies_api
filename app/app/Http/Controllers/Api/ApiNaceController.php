@@ -29,7 +29,7 @@ class ApiNaceController extends BaseController
        
         # get the enterprises
         $enterprises = Enterprise::whereIn('EnterpriseNumber', $entities)->with(
-            ['addresses', 'denominations', 'contacts', 'establishments', 'activites', 'branches']
+            ['addresses', 'denominations', 'contacts', 'establishments', 'activities', 'branches']
         )->get();
 
         $establishments = Establishment::whereIn('EstablishmentNumber', $entities)->with(

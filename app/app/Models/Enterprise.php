@@ -27,27 +27,37 @@ class Enterprise extends Model
 
     public function StatusLabel()
     {
-        return $this->hasMany(Code::class, 'Code', 'Status')->where('Category', 'Status');
+        return $this->hasMany(Code::class, 'Code', 'Status')
+        ->where('Category', 'Status')
+        ->orderBy('Code');
     }
 
     public function TypeOfEnterpriseLabel()
     {
-        return $this->hasMany('App\Models\Code', 'Code', 'TypeOfEnterprise')->where('Category', 'TypeOfEnterprise')->select(['Language','Description']);
+        return $this->hasMany(Code::class, 'Code', 'TypeOfEnterprise')
+        ->where('Category', 'TypeOfEnterprise')
+        ->select(['Language','Description']);
     }
 
     public function JuridicalSituationLabel()
     {
-        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalSituation')->where('Category', 'JuridicalSituation')->select(['Language','Description']);
+        return $this->hasMany(Code::class, 'Code', 'JuridicalSituation')
+        ->where('Category', 'JuridicalSituation')
+        ->select(['Language','Description']);
     }
 
     public function JuridicalFormLabel()
     {
-        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalForm')->where('Category', 'JuridicalForm')->select(['Language','Description']);
+        return $this->hasMany(Code::class, 'Code', 'JuridicalForm')
+        ->where('Category', 'JuridicalForm')
+        ->select(['Language','Description']);
     }
 
     public function JuridicalFormCACLabel()
     {
-        return $this->hasMany('App\Models\Code', 'Code', 'JuridicalForm')->where('Category', 'JuridicalForm')->select(['Language','Description']);
+        return $this->hasMany(Code::class, 'Code', 'JuridicalForm')
+        ->where('Category', 'JuridicalForm')
+        ->select(['Language','Description']);
     }
     
     # hasMany denominations
@@ -79,10 +89,12 @@ class Enterprise extends Model
     }
 
     // activity
-    public function activites()
+    public function activities()
     {
-        return $this->hasMany(Activity::class, 'EntityNumber', 'EnterpriseNumber');
+        return $this->hasMany(Activity::class, 'EntityNumber', 'EnterpriseNumber')
+        ->orderBy('Classification');
     }
+
 
     ## EnterpriseNumber without the dot
     public function getEnterpriseNumberDotLessAttribute()

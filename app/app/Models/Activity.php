@@ -16,6 +16,12 @@ class Activity extends Model
     {
         return $this->belongsTo(Entreprise::class, 'EnterpriseNumber', 'EntityNumber');
     }
+
+    public function naceLabels()
+    {
+        return $this->hasMany(Code::class, 'Code', 'NaceCode')
+        ->where('Category', 'Nace' . $this->NaceVersion);
+    }
 }
 
 

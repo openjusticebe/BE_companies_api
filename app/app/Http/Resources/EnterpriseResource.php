@@ -18,7 +18,7 @@ class EnterpriseResource extends BaseResource
   
         return [
             'EnterpriseNumber' => $this->EnterpriseNumber,
-            'EnterpriseNumberDotLess' => (int)$this->EnterpriseNumberDotLess,
+            'EnterpriseNumberDotLess' => $this->EnterpriseNumberDotLess,
             
             'Denominations' => $this->denominations,
 
@@ -27,8 +27,9 @@ class EnterpriseResource extends BaseResource
             'Contacts' => $this->contacts,
 
             'Establishments' => $this->establishments,
-
-            'Activites' => $this->activites,
+            
+            // load activities through new resource
+            'Activities' => EnterpriseActivityResource::collection($this->activities),
 
             'Branches' => $this->branches,
 
