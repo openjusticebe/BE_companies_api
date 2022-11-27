@@ -1,0 +1,12 @@
+FROM webdevops/php-nginx:8.1-alpine
+ENV PHP_MAX_EXECUTION_TIME 110
+ENV WEB_DOCUMENT_ROOT="/app/public"
+
+COPY ./app /app
+COPY ./config/php.ini opt/docker/etc/php/php.ini
+
+RUN chmod -Rv 777 /app/storage
+
+# Composer
+RUN composer install -d /app
+RUN composer dump-autoload -d /app
