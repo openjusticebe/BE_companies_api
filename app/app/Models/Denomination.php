@@ -11,10 +11,7 @@ class Denomination extends Model
 
     protected $table = 'denomination';
 
-    // denomination
-    // EntityNumber, Language, TypeOfDenomination, Denomination
 
-    // define the variables and their types
     protected $casts = [
         'EntityNumber' => 'string',
         'Language' => 'string',
@@ -22,7 +19,6 @@ class Denomination extends Model
         'Denomination' => 'string',
     ];
 
-    # belongsTo Enterprise
     public function enterprise()
     {
         return $this->belongsTo(Enterprise::class, 'EntityNumber', 'EnterpriseNumber');

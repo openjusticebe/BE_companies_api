@@ -18,7 +18,6 @@ class Establishment extends Model
         'StartDate' => 'date',
     ];
 
-    # belongsTo Enterprise
     public function enterprise()
     {
         return $this->belongsTo(Enterprise::class, 'EnterpriseNumber', 'EnterpriseNumber');

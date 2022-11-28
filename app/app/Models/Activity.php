@@ -17,6 +17,11 @@ class Activity extends Model
         return $this->belongsTo(Entreprise::class, 'EnterpriseNumber', 'EntityNumber');
     }
 
+    public function establishment()
+    {
+        return $this->belongsTo(Establishment::class, 'EstablishmentNumber', 'EntityNumber');
+    }
+
     public function naceLabels()
     {
         return $this->hasMany(Code::class, 'Code', 'NaceCode')
