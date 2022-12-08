@@ -11,7 +11,3 @@ class Contact extends Model
 
     protected $table = 'contact';
 }
-
-
-// contact
-// EntityNumber, EntityContact, ContactType, Value

@@ -26,10 +26,13 @@ use App\Http\Controllers\Api\BaseController;
 Route::get('/', [BaseController::class, 'index'])->name('api.index');
 
 
+Route::get('/enterprises/random/', [ApiEnterpriseController::class, 'random'])->name('enterprises.random');
+
 // lookup
 Route::get('/enterprises/lookup/', [ApiEnterpriseController::class, 'lookup'])->name('enterprises.lookup');
 
 Route::get('/enterprises/{EnterpriseNumber}', [ApiEnterpriseController::class, 'show'])->name('enterprises.show');
 
+Route::get('/enterprises/{EnterpriseNumber}/digest', [ApiEnterpriseController::class, 'showDigest'])->name('enterprises.showDigest');
 
 Route::get('/naces/{naceArray}', [ApiNaceController::class, 'get'])->name('naces.get');

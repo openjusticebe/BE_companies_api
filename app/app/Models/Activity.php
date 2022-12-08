@@ -11,7 +11,6 @@ class Activity extends Model
 
     protected $table = 'activity';
 
-    // belongsTo Entreprise
     public function entreprise()
     {
         return $this->belongsTo(Entreprise::class, 'EnterpriseNumber', 'EntityNumber');
@@ -28,7 +27,3 @@ class Activity extends Model
         ->where('Category', 'Nace' . $this->NaceVersion);
     }
 }
-
-
-// activity
-// EntityNumber, ActivityGroup, NaceVersion, NaceCode, Classification

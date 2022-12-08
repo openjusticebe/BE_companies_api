@@ -11,9 +11,3 @@ class Code extends Model
 
     protected $table = 'code';
 }
-
-
-
-
-// code
-// Category, Code, Language, Description

@@ -11,12 +11,8 @@ class Branch extends Model
 
     protected $table = 'branch';
 
-    // belongsTo Entreprise
     public function entreprise()
     {
         return $this->belongsTo(Entreprise::class, 'EnterpriseNumber', 'EnterpriseNumber');
     }
 }
-
-// branch
-// Id, StartDate, EnterpriseNumber

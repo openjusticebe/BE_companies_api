@@ -17,8 +17,11 @@ class EnterpriseResource extends BaseResource
         // return $this;
   
         return [
+            'EnterpriseNumberRequest' => $this->EnterpriseNumberRequest,
+
             'EnterpriseNumber' => $this->EnterpriseNumber,
             'EnterpriseNumberDotLess' => $this->EnterpriseNumberDotLess,
+            'EnterpriseNumberBE' => $this->EnterpriseNumberBE,
             
             'Denominations' => $this->denominations,
 

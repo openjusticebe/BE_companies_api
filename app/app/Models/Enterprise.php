@@ -96,6 +96,12 @@ class Enterprise extends Model
         return str_replace('.', '', $this->EnterpriseNumber);
     }
 
+    ## EnterpriseNumber starting with 'BE'
+    public function getEnterpriseNumberBEAttribute()
+    {
+        return 'BE ' . $this->EnterpriseNumber;
+    }
+    
     # external links
     public function getExternalLinksAttribute()
     {

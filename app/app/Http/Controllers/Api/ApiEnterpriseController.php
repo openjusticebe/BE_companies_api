@@ -9,28 +9,44 @@ use App\Models\Enterprise;
 use App\Models\Denomination;
 
 use App\Http\Resources\EnterpriseResource;
-use App\Http\Resources\EnterpriseCondensedResource;
+use App\Http\Resources\EnterpriseDigestResource;
+
+use Helper;
 
 class ApiEnterpriseController extends Controller
 {
-    public function show($EnterpriseNumber)
+    public function show($EnterpriseNumberRequest)
     {
+        $EnterpriseNumber = Helper::fixEnterpriseNumber($EnterpriseNumberRequest);
+        
         $enterprise = Enterprise::where('EnterpriseNumber', $EnterpriseNumber)->with(
             ['addresses', 'denominations', 'contacts', 'establishments', 'activities', 'branches']
-        )->first();
+        )->firstOrFail();
 
-        # use a ressource to return the data
+        $enterprise->EnterpriseNumberRequest = $EnterpriseNumberRequest;
+
         return new EnterpriseResource($enterprise);
     }
 
+    public function showDigest($EnterpriseNumberRequest)
+    {
+        $EnterpriseNumber = Helper::fixEnterpriseNumber($EnterpriseNumberRequest);
+
+        $enterprise = Enterprise::where('EnterpriseNumber', $EnterpriseNumber)->with(
+            ['addresses', 'denominations', 'contacts', 'establishments', 'activities', 'branches']
+        )->firstOrFail();
+
+        $enterprise->EnterpriseNumberRequest = $EnterpriseNumberRequest;
+
+        return new EnterpriseDigestResource($enterprise);
+    }
 
     // get arguments from the url
     public function lookup(Request $request)
     {
         $enterprisesNumber = Denomination::where('Denomination', 'like', '%' . $request->input('name') . '%')->pluck('EntityNumber')->toArray();
 
-
-        # filter with postal_code
+        # filter with Zipcode
         if ($request->input('Zipcode')) {
             $enterprises = Enterprise::whereIn('EnterpriseNumber', $enterprisesNumber)->with(
                 ['addresses', 'denominations']
@@ -50,7 +66,15 @@ class ApiEnterpriseController extends Controller
             'input' => $request->all(),
             'results' => $enterprises->count(),
             // using ressource
-            'enterprises' => EnterpriseCondensedResource::collection($enterprises),
+            'enterprises' => EnterpriseDigestResource::collection($enterprises),
         ];
+    }
+
+    public function random()
+    {
+        # find a random enterprise
+        $enterprise = Enterprise::inRandomOrder()->first();
+
+        return new EnterpriseDigestResource($enterprise);
     }
 }

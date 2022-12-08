@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EnterpriseCondensedResource extends BaseResource
+class EnterpriseDigestResource extends BaseResource
 {
     /**
      * Transform the resource into an array.
@@ -17,8 +17,22 @@ class EnterpriseCondensedResource extends BaseResource
         return [
             'EnterpriseNumber' => $this->EnterpriseNumber,
 
-            'Denominations' => $this->denominations->pluck('Denomination'),
-            'addresses' => $this->addresses,
+            # Denominations as comma separated string
+            'denomination' => $this->denominations->pluck('Denomination')->implode(', '),
+            'addresses' => $this->addresses->pluck('short')->implode(' ; '),
+            'main_naces'
+                => $this->activities->where('Classification', "MAIN")->pluck('NaceCode')->implode(', '),
+
+            'seco_naces'
+                => $this->activities->where('Classification', "SECO")->pluck('NaceCode')->implode(', '),
+
+             'establishments' => $this->establishments->pluck('EstablishmentNumber')->implode(', '),
+             'contacts' => $this->contacts->pluck('Value')->implode(', '),
+             'status' => $this->StatusLabel->pluck('Description')->implode(', '),
+             'TypeOfEnterpriseLabel' => $this->TypeOfEnterpriseLabel->pluck('Description')->implode(', '),
+             'JuridicalSituationLabel' => $this->JuridicalSituationLabel->pluck('Description')->implode(', '),
+             'JuridicalFormCACLabel' => $this->JuridicalFormCACLabel->pluck('Description')->implode(', '),
+             'StartDate' => $this->StartDate,
             'links' => [
                 'self' => route('enterprises.show', [$this->EnterpriseNumber]),
             ],
