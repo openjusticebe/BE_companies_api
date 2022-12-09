@@ -122,6 +122,10 @@ class Enterprise extends Model
                 'service_name' => 'Banque-Carrefour des Entreprises',
                 'href' =>  'https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?lang=fr&ondernemingsnummer=' . $this->EnterpriseNumberDotLess,
             ],
+            'address' => [
+                'service_name' => 'Address',
+                'href' =>  'https://www.openstreetmap.org/search?query=' . urlencode($this->addresses->first()->short),
+            ],
 
         ];
     }

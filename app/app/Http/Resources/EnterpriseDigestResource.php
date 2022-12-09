@@ -18,23 +18,37 @@ class EnterpriseDigestResource extends BaseResource
             'EnterpriseNumber' => $this->EnterpriseNumber,
 
             # Denominations as comma separated string
-            'denomination' => $this->denominations->pluck('Denomination')->implode(', '),
+            'denomination' => $this->denominations->pluck('Denomination')->implode(' ; '),
             'addresses' => $this->addresses->pluck('short')->implode(' ; '),
-            'main_naces'
+            'NACE_main'
                 => $this->activities->where('Classification', "MAIN")->pluck('NaceCode')->implode(', '),
 
-            'seco_naces'
+            'NACE_seco'
                 => $this->activities->where('Classification', "SECO")->pluck('NaceCode')->implode(', '),
 
-             'establishments' => $this->establishments->pluck('EstablishmentNumber')->implode(', '),
-             'contacts' => $this->contacts->pluck('Value')->implode(', '),
-             'status' => $this->StatusLabel->pluck('Description')->implode(', '),
-             'TypeOfEnterpriseLabel' => $this->TypeOfEnterpriseLabel->pluck('Description')->implode(', '),
-             'JuridicalSituationLabel' => $this->JuridicalSituationLabel->pluck('Description')->implode(', '),
-             'JuridicalFormCACLabel' => $this->JuridicalFormCACLabel->pluck('Description')->implode(', '),
-             'StartDate' => $this->StartDate,
+            'establishments' => $this->establishments->pluck('EstablishmentNumber')->implode(' ; '),
+
+            'branches' => $this->branches->pluck(['Id'])->implode(' ; '),
+            
+            'contacts' => $this->contacts->pluck('Value')->implode(', '),
+            'status' => $this->StatusLabel->pluck('Description')->implode(', '),
+
+            'type_entreprise_fr' => $this->TypeOfEnterpriseLabel->where('Language', 'FR')->pluck('Description')->implode(', '),
+            'type_entreprise_nl' => $this->TypeOfEnterpriseLabel->where('Language', 'NL')->pluck('Description')->implode(', '),
+
+            'juridical_situation_fr' => $this->JuridicalSituationLabel->where('Language', 'FR')->pluck('Description')->implode(', '),
+            'juridical_situation_nl' => $this->JuridicalSituationLabel->where('Language', 'NL')->pluck('Description')->implode(', '),
+
+            'juridical_form_fr' => $this->JuridicalFormLabel->where('Language', 'FR')->pluck('Description')->implode(', '),
+            'juridical_form_nl' => $this->JuridicalFormLabel->where('Language', 'NL')->pluck('Description')->implode(', '),
+            
+            'juridical_form_cac_fr' => $this->JuridicalFormCACLabel->where('Language', 'FR')->pluck('Description')->implode(', '),
+            'juridical_form_cac_nl' => $this->JuridicalFormCACLabel->where('Language', 'NL')->pluck('Description')->implode(', '),
+            
+            'StartDate' => $this->StartDate,
             'links' => [
-                'self' => route('enterprises.show', [$this->EnterpriseNumber]),
+                'self' => route('enterprises.showDigest', [$this->EnterpriseNumber]),
+                'exhaustive_info' => route('enterprises.show', [$this->EnterpriseNumber]),
             ],
             // 'Denominations' => $this->denominations,
 
@@ -46,7 +60,7 @@ class EnterpriseDigestResource extends BaseResource
 
             // 'Activites' => $this->activites,
 
-            // 'Branches' => $this->branches,
+            //
 
             // 'Status' => $this->Status,
             // 'StatusLabel' => $this->StatusLabel,
