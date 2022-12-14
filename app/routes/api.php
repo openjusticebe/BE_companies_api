@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\ApiEnterpriseController;
 use App\Http\Controllers\Api\ApiNaceController;
+use App\Http\Controllers\Api\ApiCodeController;
+
 use App\Http\Controllers\Api\BaseController;
 
 /*
@@ -34,5 +36,7 @@ Route::get('/enterprises/lookup/', [ApiEnterpriseController::class, 'lookup'])->
 Route::get('/enterprises/{EnterpriseNumber}', [ApiEnterpriseController::class, 'show'])->name('enterprises.show');
 
 Route::get('/enterprises/{EnterpriseNumber}/digest', [ApiEnterpriseController::class, 'showDigest'])->name('enterprises.showDigest');
+
+Route::get('/codes/{category}/{code}/{language}', [ApiCodeController::class, 'show'])->name('codes.show');
 
 Route::get('/naces/{naceArray}', [ApiNaceController::class, 'get'])->name('naces.get');

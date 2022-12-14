@@ -51,7 +51,6 @@ class EnterpriseResource extends BaseResource
             'JuridicalFormCAC' =>  $this->JuridicalFormCAC,
             'JuridicalFormCACLabel' => $this->JuridicalFormCACLabel,
 
-
             'StartDate' => $this->StartDate,
 
             'ExternalLinks' => $this->ExternalLinks,

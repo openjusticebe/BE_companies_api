@@ -20,11 +20,24 @@ class EnterpriseDigestResource extends BaseResource
             # Denominations as comma separated string
             'denomination' => $this->denominations->pluck('Denomination')->implode(' ; '),
             'addresses' => $this->addresses->pluck('short')->implode(' ; '),
-            'NACE_main'
-                => $this->activities->where('Classification', "MAIN")->pluck('NaceCode')->implode(', '),
+            'NACE2008_main'
+                => $this->activities->where('Classification', "MAIN")
+                ->where('NaceVersion', '2008')
+                ->pluck('NaceCode')->implode(', '),
 
-            'NACE_seco'
-                => $this->activities->where('Classification', "SECO")->pluck('NaceCode')->implode(', '),
+            'NACE2008_seco'
+                => $this->activities->where('Classification', "SECO")
+                ->where('NaceVersion', '2008')
+                ->pluck('NaceCode')->implode(', '),
+            'NACE2003_main'
+                => $this->activities->where('Classification', "MAIN")
+                ->where('NaceVersion', '2003')
+                ->pluck('NaceCode')->implode(', '),
+
+            'NACE2003_seco'
+                => $this->activities->where('Classification', "SECO")
+                ->where('NaceVersion', '2003')
+                ->pluck('NaceCode')->implode(', '),
 
             'establishments' => $this->establishments->pluck('EstablishmentNumber')->implode(' ; '),
 

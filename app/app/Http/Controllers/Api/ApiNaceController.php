@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Enterprise;
 use App\Models\Activity;
 use App\Models\Establishment;
+use App\Models\Code;
 
 class ApiNaceController extends BaseController
 {
