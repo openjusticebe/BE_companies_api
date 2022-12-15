@@ -19,6 +19,21 @@
         }
     ],
     "paths": {
+        "/enterprises/{EnterpriseNumber}": {
+            "get": {
+                "tags": [
+                    "Main"
+                ],
+                "summary": "Get the homepage of the API",
+                "description": "Links to API resources",
+                "operationId": "enterprise.show",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
         "/": {
             "get": {
                 "tags": [

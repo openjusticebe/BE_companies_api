@@ -15,6 +15,20 @@ use Helper;
 
 class ApiEnterpriseController extends Controller
 {
+    /**
+    * @OA\Get(
+    * path="/enterprises/{EnterpriseNumber}",
+    * summary="Get the homepage of the API",
+    * description="Links to API resources",
+    * operationId="enterprise.show",
+    * tags={"Main"},
+    * @OA\Response(
+    *    response=200,
+    *    description="Success",
+    * )
+    * )
+    * )
+    */
     public function show($EnterpriseNumberRequest)
     {
         $EnterpriseNumber = Helper::fixEnterpriseNumber($EnterpriseNumberRequest);
